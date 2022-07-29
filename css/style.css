@@ -1,0 +1,93 @@
+
+        footer{background-color: cadetblue;width: 100%;height: 100vh;position: absolute; bottom: 0;}
+        *{padding:0;margin:0;}
+        html,
+        body {
+          position: relative;
+          height: 100%;
+        }
+  
+        body {
+          background: #eee;
+          font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+          font-size: 14px;
+          color: #000;
+          margin: 0;
+          padding: 0;
+        }
+  
+        .mySwiper_big {
+          width: 100%;
+          height: 100vh;
+        }
+
+        .slide_2{
+          height:100%;
+          width: 100%;
+          display: flex;
+        }
+        .slide_2 .swiper{
+          width: 50%;
+          height: 100%;
+        }
+        .mySwiper_slide2_left .swiper-wrapper .swiper-slide{
+          height: 100%;
+        }
+        .mySwiper_slide2_right .swiper-wrapper .swiper-slide{
+          height: 100%;
+        }
+  
+        .swiper-slide {
+          text-align: center;
+          font-size: 18px;
+          background: #fff;
+  
+          /* Center slide text vertically */
+          display: -webkit-box;
+          display: -ms-flexbox;
+          display: -webkit-flex;
+          display: flex;
+          -webkit-box-pack: center;
+          -ms-flex-pack: center;
+          -webkit-justify-content: center;
+          justify-content: center;
+          -webkit-box-align: center;
+          -ms-flex-align: center;
+          -webkit-align-items: center;
+          align-items: center;
+        }
+  
+        .swiper-slide img {
+          display: block;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+        
+        .swiper-pagination-bullet {
+            width: 20px;
+            height: 20px;
+            text-align: center;
+            line-height: 20px;
+            font-size: 12px;
+            color: #ddd;
+            opacity: 1;
+            background: transparent;
+        }
+
+        .swiper-pagination-bullet-active {
+            color: #0e130e;font-weight:bold;
+        }
+
+        .mySwiper_main .swiper-wrapper .swiper-slide{height:100vh;}
+        .mySwiper_main .swiper-pagination-horizontal{
+            bottom:0!important;top:unset;
+            height: 2px;
+        }
+        .swiper-pagination-progressbar{background-color: rgb(65, 65, 65);}
+        .swiper-pagination-progressbar-fill{
+            background-color: #fff!important;
+        }
+
+        .swiper-pagination-bullet{width:14px!important;}
+        .swiper-pagination-vertical.swiper-pagination-bullets, .swiper-vertical>.swiper-pagination-bullets{right:20px;}
