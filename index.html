@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>multiple-Swiper</title>
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css"/>
+</head>
+
+<body>
+    <div class="swiper mySwiper_big">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <div class="swiper mySwiper_main">
+                <div class="swiper-wrapper">
+                  <div class="swiper-slide" style="background-color: rgb(0, 112, 60);">Main_Banner1</div>
+                  <div class="swiper-slide" style="background-color: rgb(112, 0, 84);">Main_Banner2</div>
+                  <div class="swiper-slide" style="background-color: rgb(24, 63, 109);">Main_Banner3</div>
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="slide_2">
+              <div class="swiper mySwiper_slide2_left">
+                  <div class="swiper-wrapper">
+                    <div class="swiper-slide" style="background-color: rgb(0, 112, 60);">Main_Banner1</div>
+                    <div class="swiper-slide" style="background-color: rgb(112, 0, 84);">Main_Banner2</div>
+                    <div class="swiper-slide" style="background-color: rgb(24, 63, 109);">Main_Banner3</div>
+                  </div>
+              </div>
+              <div class="swiper mySwiper_slide2_right">
+                  <div class="swiper-wrapper">
+                    <div class="swiper-slide" style="background-color: rgb(110, 110, 110);">Main_Banner1</div>
+                    <div class="swiper-slide" style="background-color: rgb(87, 47, 77);">Main_Banner2</div>
+                    <div class="swiper-slide" style="background-color: rgb(246, 254, 13);">Main_Banner3</div>
+                  </div>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide" style="background-color: tomato;">Slide 3</div>
+          <div class="swiper-slide" style="background-color: teal;">Slide 4</div>
+          <div class="swiper-slide" style="background-color: aquamarine;">Slide 5</div>
+        </div>
+        <div class="swiper-pagination"></div>
+    </div>
+    <footer></footer>
+    <style>
+        footer{background-color: cadetblue;width: 100%;height: 100vh;position: absolute; bottom: 0;}
+        *{padding:0;margin:0;}
+        html,
+        body {
+          position: relative;
+          height: 100%;
+        }
+  
+        body {
+          background: #eee;
+          font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+          font-size: 14px;
+          color: #000;
+          margin: 0;
+          padding: 0;
+        }
+  
+        .mySwiper_big {
+          width: 100%;
+          height: 100vh;
+        }
+
+        .slide_2{
+          height:100%;
+          width: 100%;
+          display: flex;
+        }
+        .slide_2 .swiper{
+          width: 50%;
+          height: 100%;
+        }
+        .mySwiper_slide2_left .swiper-wrapper .swiper-slide{
+          height: 100%;
+        }
+        .mySwiper_slide2_right .swiper-wrapper .swiper-slide{
+          height: 100%;
+        }
+        /* .mySwiper_move{display:flex;width:100%;}
+        .mySwiper_move .swiper-wrapper{width:100%;overflow: hidden;}
+        .mySwiper_move .swiper-wrapper .swiper-slide{height:100vh;width:100%!important;} */
+        /* .first,.last{transform:translate(0,0)!important;} */
+  
+        .swiper-slide {
+          text-align: center;
+          font-size: 18px;
+          background: #fff;
+  
+          /* Center slide text vertically */
+          display: -webkit-box;
+          display: -ms-flexbox;
+          display: -webkit-flex;
+          display: flex;
+          -webkit-box-pack: center;
+          -ms-flex-pack: center;
+          -webkit-justify-content: center;
+          justify-content: center;
+          -webkit-box-align: center;
+          -ms-flex-align: center;
+          -webkit-align-items: center;
+          align-items: center;
+        }
+  
+        .swiper-slide img {
+          display: block;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+        
+        .swiper-pagination-bullet {
+            width: 20px;
+            height: 20px;
+            text-align: center;
+            line-height: 20px;
+            font-size: 12px;
+            color: #ddd;
+            opacity: 1;
+            background: transparent;
+        }
+
+        .swiper-pagination-bullet-active {
+            color: #0e130e;font-weight:bold;
+        }
+
+        .mySwiper_main .swiper-wrapper .swiper-slide{height:100vh;}
+        .mySwiper_main .swiper-pagination-horizontal{
+            bottom:0!important;top:unset;
+            height: 2px;
+        }
+        .swiper-pagination-progressbar{background-color: rgb(65, 65, 65);}
+        .swiper-pagination-progressbar-fill{
+            background-color: #fff!important;
+        }
+
+        .swiper-pagination-bullet{width:14px!important;}
+        .swiper-pagination-vertical.swiper-pagination-bullets, .swiper-vertical>.swiper-pagination-bullets{right:20px;}
+
+    </style>
+
+
+    <script>
+    window.onload = function(){
+        var swiper_big = new Swiper(".mySwiper_big", {
+          direction: "vertical",
+          speed:700,
+          mousewheel: true,
+          autoHeight: true,
+          pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+            renderBullet: function (index, className) {
+                return '<span class="' + className + '">' + '0' + (index + 1) + "</span>";
+            },
+          },
+          on: {
+            slideChangeTransitionStart: function() {
+              if(swiper_big.activeIndex == 1){
+                swiper_big.mousewheel.disable();
+              }else{
+                swiper_big.mousewheel.enable();
+              }
+            }
+          },
+          nested: true,
+          
+        });
+        
+
+        var swiper_slide1 = new Swiper(".mySwiper_main", {
+            loop: true,
+            speed:1000,
+            effect: "fade",
+            
+            autoplay: {
+            delay: 3500,
+            disableOnInteraction: false,
+            },
+            pagination: {
+            el: ".swiper-pagination",
+            type: "progressbar",
+            },
+            navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+            },
+        });
+
+        var swiper_slide2_left = new Swiper(".mySwiper_slide2_left", {
+            effect: "creative",
+            mousewheel: true,
+            watchSlidesProgress: true,
+            slidesPerView: 1,
+            creativeEffect: {
+              prev: {
+                shadow: false,
+                translate: ["-100%", 0, 0],
+              },
+              next: {
+                translate: ["100%", 0, 0],
+              },
+            },
+            
+            on: {
+              toEdge: function() {
+                setTimeout(
+                  function(){
+                    swiper_big.mousewheel.enable();//활성
+                  }, 500
+                );
+              },
+            },
+        });
+        
+        var swiper_slide2_right = new Swiper(".mySwiper_slide2_right", {
+            effect: "creative",
+            mousewheel: true,
+            watchSlidesProgress: true,
+            slidesPerView: 1,
+            creativeEffect: {
+              prev: {
+                shadow: false,
+                translate: ["-100%", 0, 0],
+              },
+              next: {
+                translate: ["100%", 0, 0],
+              },
+            },
+            
+            on: {
+              
+              toEdge: function() {
+                setTimeout(
+                  function(){
+                    swiper_big.mousewheel.enable();//활성
+                  }, 500
+                );
+              },
+              
+              
+            },
+            
+        });
+        swiper_slide2_left.controller.control = swiper_slide2_right;
+        swiper_slide2_right.controller.control = swiper_slide2_left;
+
+
+    }
+    </script>
+
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+</body>
+
+</html>
